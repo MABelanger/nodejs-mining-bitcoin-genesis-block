@@ -1,5 +1,7 @@
-import * as header from './header';
-import * as printUtils from './printUtils';
+'use strict';
+
+const header = require('./header');
+const printUtils = require('./printUtils');
 
 const VERSION = "01000000";
 const PREV_BLOCK = "0000000000000000000000000000000000000000000000000000000000000000";
