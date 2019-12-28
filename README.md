@@ -123,4 +123,4 @@ $ hexdump -C  -n 739 blk00000.dat
 You can browse the fist block at [blockchair](https://blockchair.com/bitcoin/block/0)
 
 ## Sample Output
-![Sample output](./data/command_example.png)
+![Sample output](./_docs/command_example.png)

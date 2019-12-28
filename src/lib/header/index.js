@@ -43,11 +43,16 @@ function getHeaderSha256Hex(headerHex) {
   return headerSha256Hex;
 }
 
+function isHeaderHashLessThanTarget(blockHash, target) {
+    return parseInt(blockHash, 16) < parseInt(target, 16);
+}
+
 module.exports = {
   getMerkleRoot,
   getTimestamp,
   getSize,
   getNonce,
   getConcatHeader,
-  getHeaderSha256Hex
+  getHeaderSha256Hex,
+  isHeaderHashLessThanTarget
 }
