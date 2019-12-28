@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+coverage
+dist
+.nyc_output
+npm-debug.log
+www/static/media
+airtimeatsea.com.key
+airtimeatsea.com.crt
