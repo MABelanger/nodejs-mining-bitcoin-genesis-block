@@ -29,10 +29,11 @@ var tx1 = 'dcc95c8740525e27d87333558e5d0a288d0eac9062598c86c77e75dcde7178d2';
 var tx2 = '043cd1d9166cf16a4cc02d4385667657056cbe23f7058877c7fde09ef7de904a';
 var tx3 = '88b058d7e3e7b6d174d0f5a76a209a3107de65c01b010cda72ee64b22c980998';
 
-var littleIndianTxs = [tx1, tx2, tx3].map(sha256Mod.getHexLittleIndian)
-var merkleRoot = getMerkleRoot(littleIndianTxs)
+var littleIndianTxs = [tx1, tx2, tx3].map(sha256Mod.getHexLittleIndian);
+var merkleRoot = getMerkleRoot(littleIndianTxs);
 
-console.log(merkleRoot)
+var merkleRootBigIndian = sha256Mod.getHexLittleIndian(merkleRoot)
+console.log(merkleRootBigIndian)
 
 // expected 'e7ae478c684e965d730e72b9cac644fd1ebeb1517fe69cc458d9d4070b9de8d8'
 // output   'b2f52e4efbbab7653489b83d5ad331f1ada1b7e5959ac63b8aa45a786ae90279'
