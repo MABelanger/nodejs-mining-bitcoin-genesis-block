@@ -30,8 +30,8 @@ function getNonce(numberOfTry){
     return nonceLittleIndian;
 }
 
-function getConcatHeader(version, prevBlock, merkleRoot, timestamp, sizeBits, nonce) {
-  const hexHeader = `${version}${prevBlock}${merkleRoot}${timestamp}${sizeBits}${nonce}`;
+function getConcatHeader(version, prevBlockHash, merkleRoot, timestamp, sizeBits, nonce) {
+  const hexHeader = `${version}${prevBlockHash}${merkleRoot}${timestamp}${sizeBits}${nonce}`;
   return hexHeader;
 }
 
@@ -47,6 +47,11 @@ function isHeaderHashLessThanTarget(blockHash, target) {
     return parseInt(blockHash, 16) < parseInt(target, 16);
 }
 
+function getPreviousBlock(prevBlockHash){
+  const GENESIS_PREV_BLOCK = "0000000000000000000000000000000000000000000000000000000000000000";
+  return prevBlockHash || GENESIS_PREV_BLOCK;
+}
+
 module.exports = {
   getMerkleRoot,
   getTimestamp,
@@ -54,5 +59,6 @@ module.exports = {
   getNonce,
   getConcatHeader,
   getHeaderSha256Hex,
+  getPreviousBlock,
   isHeaderHashLessThanTarget
 }

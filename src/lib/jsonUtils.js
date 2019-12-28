@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 
-function getBlockJsonFiles(cb) {
+function getBlocks(cb) {
   const directoryPath = path.join(__dirname, '../../', 'blocks');
   //passsing directoryPath and callback function
   fs.readdir(directoryPath, function (err, files) {
@@ -23,5 +23,5 @@ function getBlockJsonFiles(cb) {
 }
 
 module.exports = {
-  getBlockJsonFiles
+  getBlocks
 }
