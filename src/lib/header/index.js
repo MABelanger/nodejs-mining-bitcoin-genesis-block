@@ -24,12 +24,6 @@ function getSize(){
     return sizeBits
 }
 
-function getNonce(numberOfTry){
-    const nonceDecimal = numberOfTry + 2083200000; // we need 36893 try
-    const nonceLittleIndian = sha256.getLittleIndianFromDecimal(nonceDecimal) // 2083236893
-    return nonceLittleIndian;
-}
-
 function getConcatHeader(version, prevBlockHash, merkleRoot, timestamp, sizeBits, nonce) {
   const hexHeader = `${version}${prevBlockHash}${merkleRoot}${timestamp}${sizeBits}${nonce}`;
   return hexHeader;
@@ -49,14 +43,16 @@ function isHeaderHashLessThanTarget(blockHash, target) {
 
 function getPreviousBlockHash(prevBlockHash){
   const GENESIS_PREV_BLOCK = "0000000000000000000000000000000000000000000000000000000000000000";
-  return prevBlockHash || GENESIS_PREV_BLOCK;
+  if(prevBlockHash === undefined) {
+    return GENESIS_PREV_BLOCK;
+  }
+  return prevBlockHash;
 }
 
 module.exports = {
   getMerkleRoot,
   getTimestamp,
   getSize,
-  getNonce,
   getConcatHeader,
   getHeaderSha256Hex,
   getPreviousBlockHash,
