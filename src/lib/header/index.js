@@ -47,7 +47,7 @@ function isHeaderHashLessThanTarget(blockHash, target) {
     return parseInt(blockHash, 16) < parseInt(target, 16);
 }
 
-function getPreviousBlock(prevBlockHash){
+function getPreviousBlockHash(prevBlockHash){
   const GENESIS_PREV_BLOCK = "0000000000000000000000000000000000000000000000000000000000000000";
   return prevBlockHash || GENESIS_PREV_BLOCK;
 }
@@ -59,6 +59,6 @@ module.exports = {
   getNonce,
   getConcatHeader,
   getHeaderSha256Hex,
-  getPreviousBlock,
+  getPreviousBlockHash,
   isHeaderHashLessThanTarget
 }

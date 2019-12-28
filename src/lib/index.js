@@ -19,8 +19,8 @@ function mineBlock(block){
   let isSolutionFound = false;
   while (!isSolutionFound) {
 
-    const version = VERSION;                                  // "01000000"(set by the network)
-    const prevBlockHash = sha256Mod.getHexLittleIndian(headerMod.getPreviousBlock(block.previousblockhash));                             // "0000000000000000000000000000000000000000000000000000000000000000" (set by the network)
+    const version = sha256Mod.getHexLittleIndian(block.versionHex);                                  // "01000000"(set by the network)
+    const prevBlockHash = sha256Mod.getHexLittleIndian(headerMod.getPreviousBlockHash(block.previousblockhash));                             // "0000000000000000000000000000000000000000000000000000000000000000" (set by the network)
     const merkleRoot = merkleRootMod.getMerkleRoot(block.tx); // "3ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a"
     const timestamp = sha256Mod.getLittleIndianFromDecimal(block.time);                   // "29ab5f49"
     const sizeBits =  sha256Mod.getHexLittleIndian(block.bits);                        // "ffff001d"
